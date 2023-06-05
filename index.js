@@ -19,4 +19,26 @@ function addBookToLibrary(newBook) {
 // Whenever press submit button, apply Book function and add  to library
 // After every submission, loop through library and add new cards
 
-const submit = document.querySelector
+const submit = document.querySelector('button[type="submit"]');
+const generate = document.querySelector('button[type="button"]');
+const radioButtons = document.querySelectorAll('input[name="status"]');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#numberPages');
+
+submit.addEventListener('click', () => {    
+    let bookTitle;
+    let bookAuthor;
+    let bookPages;
+    let bookStatus;
+    bookTitle = title.value;
+    bookAuthor = author.value;
+    bookPages = pages.value;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            bookStatus = radioButton.value;
+            break;
+        }
+    }
+    console.log(bookTitle,bookAuthor,bookPages,bookStatus);
+});
