@@ -38,6 +38,7 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#numberPages');
 const cards = document.querySelector('.cards')
+const form = document.querySelector('#form');
 
 submit.addEventListener('click', () => {    
     let bookTitle;
@@ -57,4 +58,9 @@ submit.addEventListener('click', () => {
     book = new Book(bookTitle,bookAuthor,bookPages,bookStatus,book);
     console.log(book);
     addBookToLibrary(book);
+    form.style.display = 'none';
+});
+
+generate.addEventListener('click', () => {
+    form.style.display = 'block';
 });
