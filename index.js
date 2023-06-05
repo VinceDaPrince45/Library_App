@@ -31,6 +31,7 @@ submit.addEventListener('click', () => {
     let bookAuthor;
     let bookPages;
     let bookStatus;
+    let book;
     bookTitle = title.value;
     bookAuthor = author.value;
     bookPages = pages.value;
@@ -40,5 +41,8 @@ submit.addEventListener('click', () => {
             break;
         }
     }
-    console.log(bookTitle,bookAuthor,bookPages,bookStatus);
+    book = new Book(bookTitle,bookAuthor,bookPages,bookStatus,book);
+    addBookToLibrary(book);
+    console.log(myLibrary);
+    console.log(book.info());
 });
