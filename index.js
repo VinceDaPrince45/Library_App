@@ -13,10 +13,17 @@ function Book(title,author,pages,status) {
 
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook)
+    cards.textContent = '';
     myLibrary.forEach((book) => {
         let card = document.createElement('div');
         card.textContent = book.info();
-        content.appendChild(card);
+        cards.appendChild(card);
+        for (const radioButton of radioButtons) {
+            radioButton.checked = false;
+        }
+        title.value = '';
+        author.value = '';
+        pages.value = '';
     });
   }
 //   write code to loop through library and add display
@@ -30,7 +37,7 @@ const radioButtons = document.querySelectorAll('input[name="status"]');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#numberPages');
-const content = document.querySelector('.content')
+const cards = document.querySelector('.cards')
 
 submit.addEventListener('click', () => {    
     let bookTitle;
