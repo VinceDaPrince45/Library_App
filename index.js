@@ -12,9 +12,14 @@ function Book(title,author,pages,status) {
 }
 
 function addBookToLibrary(newBook) {
-  myLibrary.push(newBook)
+    myLibrary.push(newBook)
+    myLibrary.forEach((book) => {
+        let card = document.createElement('div');
+        card.textContent = book.info();
+        content.appendChild(card);
+    });
+  }
 //   write code to loop through library and add display
-}
 
 // Whenever press submit button, apply Book function and add  to library
 // After every submission, loop through library and add new cards
@@ -25,6 +30,7 @@ const radioButtons = document.querySelectorAll('input[name="status"]');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#numberPages');
+const content = document.querySelector('.content')
 
 submit.addEventListener('click', () => {    
     let bookTitle;
@@ -42,7 +48,6 @@ submit.addEventListener('click', () => {
         }
     }
     book = new Book(bookTitle,bookAuthor,bookPages,bookStatus,book);
+    console.log(book);
     addBookToLibrary(book);
-    console.log(myLibrary);
-    console.log(book.info());
 });
